@@ -1,22 +1,15 @@
-import { Container } from "./components/Container/Container";
+import { Header } from "./components/Header/Header";
+import { Navigation } from "./components/Navigation/Navigation";
 
 export const App = () => {
   return (
     <>
-      <header>Савелий, здравствуйте !</header>
+      <Header />
       <main>
-        <nav>
-          <Container />
-        </nav>
+        <Navigation />
         <section></section>
       </main>
       <footer></footer>
     </>
   );
 };
-
-// header;
-// main;
-// nav;
-// section;
-// footer;
