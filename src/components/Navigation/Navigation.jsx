@@ -1,10 +1,12 @@
 import classNames from "classnames";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { changeCategory } from "../../store/category/categorySlice";
 import { Container } from "../Container/Container";
 import style from "./Navigation.module.css";
 
 export const Navigation = () => {
   const { category, activeCategory } = useSelector((state) => state.category);
+  const dispatch = useDispatch();
 
   return (
     <nav className={style.navigation}>
@@ -18,6 +20,9 @@ export const Navigation = () => {
                   activeCategory === i ? style.button_active : ""
                 )}
                 style={{ backgroundImage: `url(${item.image})` }}
+                onClick={() => {
+                  dispatch(changeCategory({ indexCategory: i }));
+                }}
               >
                 {item.rus}
               </button>
