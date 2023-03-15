@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { API_URI } from "../../const";
 import {
   categoryRequestAsync,
   changeCategory,
@@ -27,7 +28,7 @@ export const Navigation = () => {
                   style.button,
                   activeCategory === i ? style.button_active : ""
                 )}
-                style={{ backgroundImage: `url(${item.image})` }}
+                style={{ backgroundImage: `url(${API_URI}/${item.image})` }}
                 onClick={() => {
                   dispatch(changeCategory({ indexCategory: i }));
                 }}
