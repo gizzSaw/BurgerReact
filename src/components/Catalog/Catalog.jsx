@@ -12,7 +12,6 @@ export const Catalog = () => {
   const { category, activeCategory } = useSelector((state) => state.category);
 
   useEffect(() => {
-    console.log("sav");
     if (category.length) {
       dispatch(productRequestAsync(category[activeCategory].title));
     }

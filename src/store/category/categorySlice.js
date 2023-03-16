@@ -8,8 +8,8 @@ const initialState = {
 };
 
 export const categoryRequestAsync = createAsyncThunk(
-  'category/fetch',
-  (data, obj) => {
+  'category/fetch',       //название экшена
+  async () => {           // (data, obj) async можно не писать
     return fetch(`${API_URI}${POSTFIX}/category`)
     .then(req => req.json())
     .catch(error => ({ error }))
