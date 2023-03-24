@@ -1,9 +1,12 @@
+import { useSelector } from "react-redux";
 import { OrderGoods } from "../OrderGoods/OrderGoods";
 import style from "./Order.module.css";
 
 const orderList = ["Бастурма", "Селёдка", "Сыр"];
 
 export const Order = () => {
+  const { totalPrice, totalCount } = useSelector((state) => state.order);
+
   return (
     <div className={style.order}>
       <section className={style.wrapper}>
@@ -23,7 +26,7 @@ export const Order = () => {
           <div className={style.total}>
             <p>Итого</p>
             <p>
-              <span className={style.amount}>1279</span>
+              <span className={style.amount}>{totalPrice} </span>
               <span className={style.currency}>₽</span>
             </p>
           </div>

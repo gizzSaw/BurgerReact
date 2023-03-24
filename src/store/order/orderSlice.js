@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    orderList: JSON.parse(localStorage.getItem('order') || '[]')
+    orderList: JSON.parse(localStorage.getItem('order') || '[]'),
+    orderGoods: [],
+    totalPrice: 0,
+    totalCount: 0,
+    erreor: []
 }
 
 export const loacalStorageMiddleware = store => next => action => {
