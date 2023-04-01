@@ -1,4 +1,6 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { orderRequestAsync } from "../../store/order/orderSlice";
 import { OrderGoods } from "../OrderGoods/OrderGoods";
 import style from "./Order.module.css";
 
@@ -6,6 +8,11 @@ const orderList = ["Бастурма", "Селёдка", "Сыр"];
 
 export const Order = () => {
   const { totalPrice, totalCount } = useSelector((state) => state.order);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(orderRequestAsync());
+  }, []);
 
   return (
     <div className={style.order}>
